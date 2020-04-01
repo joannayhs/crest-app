@@ -64,3 +64,31 @@ nic = service.users.build(first_name: 'Nic', last_name: 'Baverov', email: 'nbave
 service.save
 david = service.users.build(first_name: 'David', last_name: 'Wismer', email: 'dwismer@crest-ultrasonics.com', admin: false, password: 'password')
 service.save
+
+# sample tasks
+task_one = executive.tasks.build(task: 'Complete shipping report', user_id: joanna.id, completed: true)
+executive.save  
+task_two = service.tasks.build(task: 'Enter order', completed: false, user_id: jason.id)
+service.save 
+task_three = accounting.tasks.build(task: 'Make collection calls', completed: false, user_id: amy.id)
+accounting.save
+
+# sample posts
+first_post = lou.posts.build(title: 'Checking In', content: "How's everyone doing today?")
+lou.save
+second_post = sean.posts.build(title: 'Chems', content: 'Which chem orders are ready to ship?')
+sean.save
+third_post = kari.posts.build(title: 'Vacation Days', content: 'If you need to request days off for vacation, please put dates in comments below. Thanks!')
+kari.save 
+
+# sample comments
+comment_one = first_post.comments.build(content: 'Doing well. I love working from home!', user_id: joanna.id)
+first_post.save 
+comment_two = first_post.comments.build(content: "Thanks for checking in! I'm doing alright. How are you?", user_id: diane.id)
+first_post.save 
+comment_three = second_post.comments.build(content: 'Veritiv order is ready to go!', user_id: bryan.id)
+second_post.save
+comment_four = third_post.comments.build(content: "I'll be out 4/5/2020 - 4/15/2020", user_id: patti.id)
+third_post.save 
+comment_five = third_post.comments.build(content: "I will be taking vacation from July 1 - July 7 this year.", user_id: glen.id)
+third_post.save
